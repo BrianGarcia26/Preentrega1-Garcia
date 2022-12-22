@@ -1,14 +1,15 @@
 import React from 'react';
 import 'antd/dist/reset.css';
 import Navbar from './Components/Navbar';
-import itemListContainer from './Components/itemListContainer';
+import ItemListContainer from './Components/itemListContainer';
 import './App.css';
 
-const App = () => (
+export default function App() {
+  const [Tienda, Escuela] = ["Arañita", "Coderhouse"];
+  return (
   <div className="App">
     <Navbar />
-    <itemListContainer tienda="Arañita" escuela="Coderhouse" />
+    <ItemListContainer Tienda={Tienda} Escuela={Escuela}/>
   </div>
-);
-
-export default App;
+  );
+}

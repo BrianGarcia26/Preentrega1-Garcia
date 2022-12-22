@@ -1,11 +1,10 @@
-import React from 'react';
-
-const itemListContainer = (props) => {
+function ItemListContainer(props) {
+  const {Tienda, Escuela} = props;
   return (
-    <h1>
-      Bienvenidos a {props.tienda}, tutores de {props.escuela}
-    </h1>
+    <div>
+      Bienvenidos a {Tienda}, tutores de {Escuela}.
+    </div>
   );
 };
 
-export default itemListContainer;
+export default ItemListContainer
