@@ -1,0 +1,23 @@
+.ant-menu-root {
+    background-color: rgb(163, 120, 120);
+    color: black;
+}
+.ant-menu-item-only-child {
+    background-color: rgb(163, 120, 120);
+    color: black;
+}
+
+.botonCarrito {
+    position: absolute;
+    top: 10px; right: 40px;
+    background-color: transparent;
+}
+
+.botonCarrito:hover {
+    background-color: rgb(143, 102, 102);
+}
+
+.logo {
+    color: #c90a02;
+    font-size: larger;
+}
