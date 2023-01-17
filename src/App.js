@@ -19,7 +19,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<ItemListContainer saludo="Bienvenidos a la tienda"/>} />
         <Route path='/categoria/:categoryId' element={<ItemListContainer saludo="Bienvenidos a la categoria seleccionada"/>} />
-        <Route path='/item/:id' element={<ItemDetailContainer />} />
+        <Route path='/item/:productoId' element={<ItemDetailContainer />} />
         <Route path='/Cart' element={<Cart/>} />
         <Route path='/Products' element={<Products/>} />
       </Routes>

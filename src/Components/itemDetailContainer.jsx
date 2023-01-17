@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ItemDetail from "./itemDetail"
+import ItemDetailList from "./itemDetailList";
 import { Products } from "./products";
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState ({})
+    const [item, setItem] = useState ([])
 
-    const {id} = useParams();
+    const {productoId} = useParams();
 
 
     useEffect(() => {
         const getProduct = () => {
             return new Promise((res, rej) => {
                 const prodEncontrado = Products.find(
-                    (prod) => prod.id === id
+                    (prod) => prod.id === productoId
                 );
 
-                const prodListadoId = id 
+                const prodListadoId = productoId 
                 ? prodEncontrado 
                 : Products;
 
@@ -29,9 +29,9 @@ const ItemDetailContainer = () => {
         .then((res) => {
             setItem(res);
         })
-    }, [id])
+    }, [productoId])
 
-    return <ItemDetail item={item}/>
+    return <ItemDetailList item={item} />
 }
 
 export default ItemDetailContainer;
