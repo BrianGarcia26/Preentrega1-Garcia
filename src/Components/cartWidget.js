@@ -1,4 +1,3 @@
-import React from 'react';
 import {ShoppingCartOutlined} from '@ant-design/icons';
 
 function Cart() {
