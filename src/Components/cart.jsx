@@ -1,7 +1,10 @@
+import ItemCarritoListContainer from "./itemCarritoListContainer"
+
 const Cart = () => {
     return (
-        <div>
-            <h1>Holis h1</h1>
+        <div className="miCarrito">
+            <h1>Wenas</h1>
+            <ItemCarritoListContainer />
         </div>
     )
 }

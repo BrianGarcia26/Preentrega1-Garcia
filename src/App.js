@@ -8,6 +8,8 @@ import {Products} from './Components/products';
 import Cart from './Components/cart';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Spinner from './Components/spinner';
+
 
 
 export default function App() {
@@ -16,10 +18,11 @@ export default function App() {
     <BrowserRouter>
       <Navbar />
       <Menu />
+      <Spinner />
       <Routes>
         <Route path='/' element={<ItemListContainer saludo="Bienvenidos a la tienda"/>} />
         <Route path='/categoria/:categoryId' element={<ItemListContainer saludo="Bienvenidos a la categoria seleccionada"/>} />
-        <Route path='/item/:productoId' element={<ItemDetailContainer />} />
+        <Route path='/item/:productoId' element={<ItemDetailContainer aclarar="Bienvenidos al detalle"/>} />
         <Route path='/Cart' element={<Cart/>} />
         <Route path='/Products' element={<Products/>} />
       </Routes>
