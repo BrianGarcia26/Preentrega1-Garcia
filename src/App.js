@@ -8,6 +8,7 @@ import {Products} from './Components/products';
 import Cart from './Components/cart';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CarritoProvider from './Components/customProvider';
 import Spinner from './Components/spinner';
 
 
@@ -15,6 +16,7 @@ import Spinner from './Components/spinner';
 export default function App() {
   return (
   <div className="App">
+    <CarritoProvider>
     <BrowserRouter>
       <Navbar />
       <Menu />
@@ -27,6 +29,7 @@ export default function App() {
         <Route path='/Products' element={<Products/>} />
       </Routes>
     </BrowserRouter>
+    </CarritoProvider>
   </div>
   );
 }

@@ -1,30 +1,33 @@
 import { useState } from "react";
 
-export const Contador = ({ initial, stock, onAdd }) => {
-  const [count, setCount] = useState(initial);
+export const Contador = ({ initial, stock, handleAdd }) => {
+  const [cantidad, setCantidad] = useState(initial);
+
 
   const decrease = () => {
-    setCount(count - 1);
+    setCantidad(cantidad - 1);
   };
 
   const increase = () => {
-    setCount(count + 1);
+    setCantidad(cantidad + 1);
   };
+
+  const handleConfirmar = () => {
+    handleAdd(cantidad)
+  }
 
   return (
     <div className="counter">
-      <button disabled={count === initial} onClick={decrease}>
+      <button disabled={cantidad === initial} onClick={decrease}>
         -
       </button>
-      <span>{count}</span>
-      <button disabled={count >= stock} onClick={increase}>
+      <span>{cantidad}</span>
+      <button disabled={cantidad >= stock} onClick={increase}>
         +
       </button>
-      <div>
-        <button disabled={stock <= 0} onClick={() => onAdd(count)}>
-          Agregar al carrito
-        </button>
-      </div>
+      <button disabled={stock === 0 || cantidad === 0} onClick={handleConfirmar}>
+        Confirmar
+      </button>
     </div>
   );
 };

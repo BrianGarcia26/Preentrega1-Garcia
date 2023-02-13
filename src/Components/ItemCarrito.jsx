@@ -5,7 +5,7 @@ const ItemCarrito = ({ producto }) => {
 
     const [precio, setPrecio] = useState(producto.precio);
 
-    
+    //setPrecio(precio*a)
     //setPrecio(producto.precio)
 
     return (

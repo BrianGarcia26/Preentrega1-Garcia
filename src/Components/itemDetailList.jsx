@@ -1,19 +1,25 @@
+import { useContext, useState } from "react";
+import { contexto } from "./customProvider";
 import Contador from "./contador"
 
 const ItemDetailList = ({ item }) => {
 
-    const onAdd = (count) => {
-      if (count > 1) {
-        console.log(`Compraste ${count} unidades.`);
-      } else if (count === 1) {
-        console.log(`Compraste ${count} unidad.`);
-      } else {
-        console.log(`No estas agregando ninguna unidad.`);
-      }
-    };
+    const { agregarProductos } = useContext(contexto)
+    const [cantidadLocal, setCantidadLocal] = useState(1)
+    const [confirmado, setConfirmado] = useState(false)
+
+    const handleAdd = (cantidad) => {
+        setCantidadLocal(cantidad)
+        setConfirmado(true)
+    }
+
+    const handleClick = () => {
+        agregarProductos(item, cantidadLocal)
+    }
 
     const cuota = item.precio/12;
     const cuotaRedondeada = parseFloat(cuota.toFixed(2)) ;
+    
     return (
         <div className="container-detail2">
             <img 
@@ -37,7 +43,8 @@ const ItemDetailList = ({ item }) => {
                     Conocé todos los métodos de pago
                 </button>
                 <hr />
-                <Contador initial={0} stock={item.stock} onAdd={onAdd} />
+                <Contador initial={0} stock={item.stock} handleAdd={handleAdd} />
+                {confirmado && <button onClick={handleClick}>Agregar al carrito</button>}
             </article>
         </div>
     )

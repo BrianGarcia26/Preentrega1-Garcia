@@ -1,10 +1,15 @@
 import {ShoppingCartOutlined} from '@ant-design/icons';
+import { useContext } from 'react';
+import { contexto } from './customProvider';
 
 function Cart() {
+
+  const { cantidad } = useContext(contexto)
+
   return (
     <div>
       <button className="botonCarrito">
-      5 <ShoppingCartOutlined />
+      {cantidad} <ShoppingCartOutlined />
       </button>
     </div>
   )

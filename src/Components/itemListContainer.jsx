@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./itemList";
 import { Products } from "./products";
+import Spinner from "./spinner";
 
 const ItemListContainer = ({saludo}) => {
   const [items, setItems] = useState([]);
@@ -20,7 +21,7 @@ const ItemListContainer = ({saludo}) => {
         : Products;
         setTimeout(() => {
           res(prodListado);
-        }, 1000);
+        }, 100);
       });
     };
     getProducts()
@@ -29,12 +30,7 @@ const ItemListContainer = ({saludo}) => {
     })
   }, [categoryId]);
 
-  return (
-    <div className="container">
-      <h2>{saludo}</h2>
-      <ItemList items={items} />
-    </div>
-  );
+  return <> {Products ? <ItemList items={items} /> : <Spinner /> } </>
 };
 
 export default ItemListContainer;

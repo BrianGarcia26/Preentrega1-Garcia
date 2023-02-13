@@ -1,16 +1,16 @@
 import { useState } from "react";
 
-export const Contador2 = ({ initial, stock }) => {
+export const Contador2 = ({ initial, stock, a }) => {
   const [count, setCount] = useState(initial);
-
-  const valor = 0;
 
   const decrease = () => {
     setCount(count - 1);
+    var a = count;
   };
 
   const increase = () => {
     setCount(count + 1);
+    var a = count;
   };
 
   return (

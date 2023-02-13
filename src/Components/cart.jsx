@@ -4,7 +4,7 @@ const Cart = () => {
     return (
         <div className="miCarrito">
             <h1>Wenas</h1>
-            <ItemCarritoListContainer />
+            <ItemCarritoListContainer saludo={"Este es un saludo"}/>
         </div>
     )
 }

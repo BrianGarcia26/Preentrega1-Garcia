@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetailList from "./itemDetailList";
 import { Products } from "./products";
+import Spinner from "./spinner";
 
 const ItemDetailContainer = ({aclarar}) => {
     const [item, setItem] = useState ({})
@@ -23,7 +24,7 @@ const ItemDetailContainer = ({aclarar}) => {
 
                 setTimeout(() => {
                     res(prodListadoId);
-                  }, 100);
+                  }, 1500);
             });
         }
         getProduct()
@@ -35,12 +36,7 @@ const ItemDetailContainer = ({aclarar}) => {
         })
     }, [proId]);
 
-    return (
-        <div className="divDetalle">
-            <h2>{aclarar}</h2>
-            <ItemDetailList item={item} />
-        </div>
-    ); 
+    return <> {item.id ? <ItemDetailList item={item} /> : <Spinner /> } </>
 }
 
 export default ItemDetailContainer;
