@@ -8,37 +8,35 @@ import { contexto } from "./customProvider";
 const ItemCarritoListContainer = ({saludo}) => {
   const [items, setItems] = useState([]);
 
+  const { copia } = useContext(contexto)
+
   //const resultado = useContext(contexto)
   //console.log(resultado)
-
-  const {categoryId} = useParams();
 
   useEffect(() => {
     const getProducts = () => {
       return new Promise ((res, rej) => {
-        const productosFiltrados = Products.filter(
-          (prod) => prod.categoria === categoryId
-          );
+        if (copia) {
+          console.log("Existe")
+        };
 
-        const prodListado = categoryId 
-        ? productosFiltrados 
-        : Products;
+        
         setTimeout(() => {
-          res(prodListado);
-        }, 1000);
+          res(copia);
+        }, 10000);
       });
     };
     getProducts()
     .then((res) => {
       setItems(res);
     })
-  }, [categoryId]);
+  }, );
 
-  const {carrito,agregarProductos} = useContext(contexto)
+  const {carrito,vaciarCarrito} = useContext(contexto)
 
   const handleClick = () => {
-    agregarProductos()
-    console.log(carrito)
+    vaciarCarrito()
+    console.log("carrito vaciado")
   }
 
   return (
@@ -46,6 +44,7 @@ const ItemCarritoListContainer = ({saludo}) => {
       <h2>{saludo}</h2>
       <button onClick={handleClick}>BOTON</button>
       {JSON.stringify(carrito)}
+      {items}
       <ItemCarritoList items={items} />
     </div>
   );

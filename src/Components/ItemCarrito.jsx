@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useContext } from 'react';
+import { contexto } from './customProvider';
 import Contador2 from "./contador2"
 
 const ItemCarrito = ({ producto }) => {
 
     const [precio, setPrecio] = useState(producto.precio);
+    const { total } = useContext(contexto)
 
     //setPrecio(precio*a)
     //setPrecio(producto.precio)
@@ -21,7 +24,7 @@ const ItemCarrito = ({ producto }) => {
                <h3>{producto.stock} unidades.</h3>
             </div>
             <div>
-                <h2>`$ {precio}`</h2>
+                <h2>$ {total}</h2>
             </div>
         </div>
     );

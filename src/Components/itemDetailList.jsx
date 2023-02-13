@@ -4,17 +4,24 @@ import Contador from "./contador"
 
 const ItemDetailList = ({ item }) => {
 
-    const { agregarProductos } = useContext(contexto)
+    const { agregarProductos, estaEnCarrito } = useContext(contexto)
     const [cantidadLocal, setCantidadLocal] = useState(1)
     const [confirmado, setConfirmado] = useState(false)
+    const [carritoLocal, setCarritoLocal] = useState(1)
 
     const handleAdd = (cantidad) => {
         setCantidadLocal(cantidad)
         setConfirmado(true)
+        setCarritoLocal(item)
+        
     }
 
     const handleClick = () => {
+        estaEnCarrito(item, cantidadLocal)
         agregarProductos(item, cantidadLocal)
+        console.log(item)
+        console.log("00000000000000000000000000000000000000")
+        console.log(carritoLocal)
     }
 
     const cuota = item.precio/12;
